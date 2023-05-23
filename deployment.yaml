@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-app
+  name: nginx-app
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      deployment: nginx-app
+  template:
+    metadata:
+      labels:
+        deployment: nginx-app
+    spec:
+      containers:
+      - image: quay.io/woozoolinux/nginx-sample@sha256:e05ba9daffad726ec9903fce20cf5a2fbb4bb97c465dc93d9cd9ef8278a6dbf2
+        name: nginx-app
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
