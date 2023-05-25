@@ -16,7 +16,7 @@ spec:
         deployment: nginx-app
     spec:
       containers:
-      - image: quay.io/woozoolinux/nginx-sample@sha256:e05ba9daffad726ec9903fce20cf5a2fbb4bb97c465dc93d9cd9ef8278a6dbf2
+      - image: quay.io/woozoolinux/nginx-sample
         name: nginx-app
         ports:
         - containerPort: 8080
