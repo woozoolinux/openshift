@@ -1,1 +1,13 @@
 $ oc set probe deploy/long-load --readiness --open-tcp 3000
+
+$ oc set probe deploy/long-load --liveness --get-url=http://:8080/health
+
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+          periodSeconds: 3
+          successThreshold: 1
+          timeoutSeconds: 1
