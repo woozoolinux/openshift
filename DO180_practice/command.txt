@@ -11,3 +11,16 @@ $ oc set probe deploy/long-load --liveness --get-url=http://:8080/health
           periodSeconds: 3
           successThreshold: 1
           timeoutSeconds: 1
+
+$ oc set probe deploy/long-load --readiness -- cat /etc/hosts
+
+        readinessProbe:
+          exec:
+            command:
+            - cat
+            - /etc/hosts
+          failureThreshold: 1
+          periodSeconds: 3
+          successThreshold: 1
+          timeoutSeconds: 1
+
