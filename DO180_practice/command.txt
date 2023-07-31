@@ -1,0 +1,1 @@
+$ oc set probe deploy/long-load --readiness --open-tcp 3000
