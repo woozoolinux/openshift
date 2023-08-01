@@ -24,8 +24,13 @@ $ oc set probe deploy/long-load --readiness -- cat /etc/hosts
           successThreshold: 1
           timeoutSeconds: 1
 
-
+[student@workstation DO180_practice]$ oc set resources deployment long-load --requests cpu=300m,memory=1Gi --limits cpu=500m,memory=2Gi
+deployment.apps/long-load resource requirements updated
+[student@workstation DO180_practice]$ oc get deploy long-load -o yaml | grep resources: -A 9
         resources:
+          limits:
+            cpu: 500m
+            memory: 2Gi
           requests:
             cpu: 300m
             memory: 1Gi
