@@ -34,3 +34,15 @@ deployment.apps/long-load resource requirements updated
           requests:
             cpu: 300m
             memory: 1Gi
+
+$ oc describe node master01 | grep "Allocated resources:" -A8
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests       Limits
+  --------           --------       ------
+  cpu                3458m (46%)    1480m (19%)
+  memory             13691Mi (72%)  3298Mi (17%)
+  ephemeral-storage  0 (0%)         0 (0%)
+  hugepages-1Gi      0 (0%)         0 (0%)
+  hugepages-2Mi      0 (0%)         0 (0%)
+
