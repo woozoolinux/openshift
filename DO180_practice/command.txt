@@ -24,3 +24,8 @@ $ oc set probe deploy/long-load --readiness -- cat /etc/hosts
           successThreshold: 1
           timeoutSeconds: 1
 
+
+        resources:
+          requests:
+            cpu: 300m
+            memory: 1Gi
